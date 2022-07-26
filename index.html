@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Whitelist Player Minecraft</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h4 class="title">Tool Generator Whitelist</h4>
+        <h3 class="title">Player Minecraft</h3>
+        <div class="row">
+            <div class="grow-wrap">
+                <textarea id="players" onInput="this.parentNode.dataset.replicatedValue = this.value"></textarea>
+            </div>
+            <div class="right">
+                <div class="buttons">
+                    <button id="generate">Generate</button>
+                    <div class="tooltip">
+                        <button id="copy" onclick="myFunction()">
+                            <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+                            Copy
+                        </button>
+                    </div>
+                </div>
+                <div class="grow-wrap">
+                    <textarea id="result" readonly onInput="this.parentNode.dataset.replicatedValue = this.value"></textarea>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>Created By <a href="http://jangbe.github.io" target="_blank" rel="noopener noreferrer">Jangbe</a></p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

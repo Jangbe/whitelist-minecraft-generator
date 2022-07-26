@@ -1,0 +1,210 @@
+@font-face {
+    font-family: 'minecraft-alt';
+    src: url('fonts/Minecrafter.Alt.ttf');
+}
+
+@font-face {
+    font-family: 'minecraft-reg';
+    src: url('fonts/Minecrafter.Reg.ttf');
+}
+
+:root {
+    --input-border: #8b8a8b;
+    --input-focus-h: 245;
+    --input-focus-s: 100%;
+    --input-focus-l: 42%;
+}
+
+.grow-wrap {
+    /* easy way to plop the elements on top of each other and have them both sized based on the tallest one's height */
+    display: grid;
+}
+
+.grow-wrap::after {
+    /* Note the weird space! Needed to preventy jumpy behavior */
+    content: attr(data-replicated-value) " ";
+
+    /* This is how textarea text behaves */
+    white-space: pre-wrap;
+
+    /* Hidden from view, clicks, and screen readers */
+    visibility: hidden;
+}
+
+.grow-wrap>textarea {
+    /* You could leave this, but after a user resizes, then it ruins the auto sizing */
+    resize: none;
+
+    /* Firefox shows scrollbar on growth, you can hide like this. */
+    overflow: hidden;
+}
+
+.grow-wrap>textarea,
+.grow-wrap::after {
+    /* Identical styling required!! */
+    border: 1px solid black;
+    padding: 0.5rem;
+    font: inherit;
+
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #4b7e50;
+}
+
+.container {
+    width: 80%;
+    background-color: #dafadc;
+    margin: 10px auto;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.title {
+    color: #2d6132;
+    font-family: 'minecraft-alt';
+    font-size: 30px;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+#players {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #adadad;
+    color: #2d6132;
+    border: 4px solid #2d6132;
+    border-radius: 6px;
+    transition: 180ms box-shadow ease-in-out;
+}
+
+#players:focus {
+    border-color: #2d6132;
+    box-shadow: 0 0 0 3px #38a843;
+    outline: none;
+}
+
+.right {
+    width: 100%;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+button{
+    width: 100px;
+    padding: 10px;
+    background-color: #38a843;
+    border-radius: 7px;
+    border: 0;
+    color: #fff;
+    font-weight: 700;
+    box-shadow: -4px 4px 4px #2d6132;
+    transition: .5s all;
+}
+
+button:active{
+    background-color: #2d6132;
+    box-shadow: -2px 2px 2px #244627;
+}
+
+#copy {
+    margin-left: 10px;
+}
+
+#result {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #adadad;
+    color: #2d6132;
+    border: 4px solid #2d6132;
+    border-radius: 6px;
+    transition: 180ms box-shadow ease-in-out;
+}
+
+#result:focus {
+    border-color: #2d6132;
+    box-shadow: 0 0 0 3px #38a843;
+    outline: none;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 140px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -75px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+footer{
+    text-align: center;
+    margin-top: 30px;
+    font-family: 'minecraft-reg';
+}
+
+footer a{
+    color: #244627;
+}
+
+footer a:hover{
+    color: #38a843;
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .container{
+        width: 90%;
+    }
+
+    .row{
+        display: block;
+        gap: 0;
+        align-items: baseline;
+    }
+
+    .buttons{
+        margin-top: 15px;
+    }
+}
